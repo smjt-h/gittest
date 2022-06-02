@@ -1,0 +1,33 @@
+---
+pipeline:
+  projectIdentifier: "localproj"
+  orgIdentifier: "default"
+  tags: {}
+  stages:
+  - stage:
+      name: "first"
+      identifier: "first"
+      type: "CI"
+      spec:
+        cloneCodebase: false
+        infrastructure:
+          type: "KubernetesDirect"
+          spec:
+            connectorRef: "kube2"
+            namespace: "harness-delegate"
+            automountServiceAccountToken: true
+            nodeSelector: {}
+        execution:
+          steps:
+          - step:
+              type: "Run"
+              name: "runit"
+              identifier: "runit"
+              spec:
+                connectorRef: "account.harnessImage"
+                image: "golang:1.15"
+                shell: "Sh"
+                command: "echo jasbdabkjf"
+  identifier: "clr5"
+  description: "this is clone desctipalkfn"
+  name: "clr5"
