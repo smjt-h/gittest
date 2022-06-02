@@ -1,0 +1,59 @@
+pipeline:
+    name: remote jt
+    identifier: remotejt
+    description: here to stay
+    projectIdentifier: localproj
+    orgIdentifier: default
+    tags: {}
+    allowStageExecutions: true
+    stages:
+        - stage:
+              name: a
+              identifier: a
+              description: ""
+              type: Approval
+              spec:
+                  execution:
+                      steps:
+                          - step:
+                                name: a1
+                                identifier: a1
+                                type: HarnessApproval
+                                timeout: 10m
+                                spec:
+                                    approvalMessage: <+input>
+                                    includePipelineExecutionHistory: true
+                                    approvers:
+                                        minimumCount: 1
+                                        disallowPipelineExecutor: false
+                                        userGroups:
+                                            - account.default_peeps
+                                            - account.rbac_peeps
+                                            - account.adminsOnly
+                                    approverInputs: []
+              tags: {}
+        - stage:
+              name: b
+              identifier: b
+              description: ""
+              type: Approval
+              spec:
+                  execution:
+                      steps:
+                          - step:
+                                name: a1
+                                identifier: a1
+                                type: HarnessApproval
+                                timeout: 10m
+                                spec:
+                                    approvalMessage: <+input>
+                                    includePipelineExecutionHistory: true
+                                    approvers:
+                                        minimumCount: 1
+                                        disallowPipelineExecutor: false
+                                        userGroups:
+                                            - account.default_peeps
+                                            - account.rbac_peeps
+                                            - account.adminsOnly
+                                    approverInputs: []
+              tags: {}
