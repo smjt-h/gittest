@@ -1,0 +1,37 @@
+pipeline:
+    name: gitenabled
+    identifier: gitenabled
+    projectIdentifier: localproj
+    orgIdentifier: default
+    tags: {}
+    properties:
+        ci:
+            codebase:
+                connectorRef: gitconsync
+                build: <+input>
+    stages:
+        - stage:
+              name: first
+              identifier: first
+              type: CI
+              spec:
+                  cloneCodebase: true
+                  infrastructure:
+                      type: KubernetesDirect
+                      spec:
+                          connectorRef: kube2
+                          namespace: harness-deligate
+                          automountServiceAccountToken: true
+                          nodeSelector: {}
+                          harnessImageConnectorRef: account.harnessImage
+                  execution:
+                      steps:
+                          - step:
+                                type: Run
+                                name: ihasdf
+                                identifier: ihasdf
+                                spec:
+                                    connectorRef: account.harnessImage
+                                    image: golang:1.16
+                                    shell: Sh
+                                    command: echo ajsga
