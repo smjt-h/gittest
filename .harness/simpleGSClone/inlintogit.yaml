@@ -1,0 +1,38 @@
+---
+pipeline:
+  projectIdentifier: "localproj"
+  orgIdentifier: "default"
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: "gitconsync"
+        build: "<+input>"
+  stages:
+  - stage:
+      name: "first"
+      identifier: "first"
+      type: "CI"
+      spec:
+        cloneCodebase: true
+        infrastructure:
+          type: "KubernetesDirect"
+          spec:
+            connectorRef: "kube2"
+            namespace: "harness-deligate"
+            automountServiceAccountToken: true
+            nodeSelector: {}
+        execution:
+          steps:
+          - step:
+              type: "Run"
+              name: "wqd"
+              identifier: "wqd"
+              spec:
+                connectorRef: "account.harnessImage"
+                image: "golang"
+                shell: "Sh"
+                command: "echo jkanfj"
+  identifier: "inlintogit"
+  description: "this is clone desctipalkfn"
+  name: "inlintogit"
