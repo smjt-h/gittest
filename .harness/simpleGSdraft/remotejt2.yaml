@@ -1,0 +1,8 @@
+pipeline:
+    name: drafremote1
+    identifier: drafremote1
+    description: here to stay
+    projectIdentifier: localproj
+    orgIdentifier: default
+    tags: {}
+    allowStageExecutions: true
