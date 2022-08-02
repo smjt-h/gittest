@@ -1,2 +1,2 @@
 # gittest
-gittest 1
+gittest 12
