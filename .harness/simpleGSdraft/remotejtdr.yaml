@@ -1,0 +1,8 @@
+pipeline:
+    name: drremote1
+    identifier: drremote1
+    description: here to stay
+    projectIdentifier: localproj
+    orgIdentifier: default
+    tags: {}
+    allowStageExecutions: true
