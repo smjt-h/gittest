@@ -1,3 +1,3 @@
 # gittest
 gittest 12
-dummy2
+dummy3
