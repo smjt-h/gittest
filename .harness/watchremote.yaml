@@ -17,6 +17,7 @@ pipeline:
             spec:
               connectorRef: ciqa
               namespace: harness-qa-delegate
+              automountServiceAccountToken: true
               nodeSelector: {}
               os: Linux
           execution:
