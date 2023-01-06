@@ -1,0 +1,32 @@
+pipeline:
+  name: watchremote
+  identifier: watchremote
+  projectIdentifier: qajt
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: wstag
+        identifier: wstag
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: false
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: ciqa
+              namespace: harness-qa-delegate
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    connectorRef: amancon
+                    image: alpine
+                    shell: Sh
+                    command: echo janskdj
