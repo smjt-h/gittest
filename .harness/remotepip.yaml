@@ -43,6 +43,7 @@ pipeline:
           outputs: []
         when:
           pipelineStatus: Success
+          condition: <+pipeline.stages.remotechild.output.out1>
     - stage:
         name: sdfs
         identifier: sdfs
