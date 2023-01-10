@@ -14,6 +14,9 @@ pipeline:
           org: default
           pipeline: remotechild
           project: newqajt
+          outputs:
+            - name: out1
+              value: "false"
     - stage:
         name: basic
         identifier: basic
@@ -40,7 +43,6 @@ pipeline:
           outputs: []
         when:
           pipelineStatus: Success
-          condition: "false"
     - stage:
         name: sdfs
         identifier: sdfs
