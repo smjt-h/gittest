@@ -37,6 +37,7 @@ pipeline:
                             type: Run
                             spec:
                               image: <+input>
+          outputs: []
         when:
           pipelineStatus: Success
           condition: "true"
