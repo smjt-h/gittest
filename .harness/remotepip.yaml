@@ -6,8 +6,17 @@ pipeline:
   tags: {}
   stages:
     - stage:
-        name: child1
-        identifier: child1
+        name: remotechild
+        identifier: remotechild
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          pipeline: remotechild
+          project: newqajt
+    - stage:
+        name: basic
+        identifier: basic
         description: ""
         type: Pipeline
         spec:
@@ -28,3 +37,6 @@ pipeline:
                             type: Run
                             spec:
                               image: <+input>
+        when:
+          pipelineStatus: Success
+          condition: "true"
