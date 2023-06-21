@@ -1,35 +1,39 @@
----
 pipeline:
-  orgIdentifier: "default"
-  projectIdentifier: "jttest"
+  orgIdentifier: default
+  projectIdentifier: jttest
   properties:
     ci:
       codebase:
-        build: "<+input>"
-        connectorRef: "account.Github"
-        repoName: "smjt-h/gittest"
+        build: <+input>
+        connectorRef: account.Github
+        repoName: smjt-h/gittest
   stages:
-  - stage:
-      identifier: "build"
-      name: "build"
-      spec:
-        cloneCodebase: true
-        execution:
-          steps:
-          - step:
-              identifier: "echo"
-              name: "echo"
-              spec:
-                command: "echo hello world"
-              timeout: ""
-              type: "Run"
-        platform:
-          arch: "Amd64"
-          os: "Linux"
-        runtime:
-          spec: {}
-          type: "Cloud"
-      type: "CI"
-  identifier: "Build_gittest_1687350051367_Clone"
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: echo
+                  name: echo
+                  spec:
+                    connectorRef: jtdock
+                    image: alpine
+                    shell: Sh
+                    command: echo hello world
+                  timeout: ""
+                  type: Run
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: testconn
+              namespace: ci-smp-jt
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+        type: CI
+  identifier: Build_gittest_1687350051367_Clone
   tags: {}
-  name: "Build gittest - Clone"
+  name: Build gittest - Clone
