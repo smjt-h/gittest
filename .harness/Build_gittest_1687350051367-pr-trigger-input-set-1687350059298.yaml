@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_gittest_1687350051367-pr-trigger-input-set
+  identifier: Build_gittest_1687350051367prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: jttest
+  pipeline:
+    identifier: Build_gittest_1687350051367
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
