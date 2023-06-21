@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_gittest_1687350051367-push-trigger-input-set
+  identifier: Build_gittest_1687350051367pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: jttest
+  pipeline:
+    identifier: Build_gittest_1687350051367
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
