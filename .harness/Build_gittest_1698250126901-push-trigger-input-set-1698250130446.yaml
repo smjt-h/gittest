@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_gittest_1698250126901-push-trigger-input-set
+  identifier: Build_gittest_1698250126901pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: newjt
+  pipeline:
+    identifier: Build_gittest_1698250126901
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
