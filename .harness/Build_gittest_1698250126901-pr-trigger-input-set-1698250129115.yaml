@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_gittest_1698250126901-pr-trigger-input-set
+  identifier: Build_gittest_1698250126901prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: newjt
+  pipeline:
+    identifier: Build_gittest_1698250126901
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
