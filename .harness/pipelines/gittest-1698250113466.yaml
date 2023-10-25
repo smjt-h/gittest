@@ -3,18 +3,12 @@ pipeline:
   name: Build gittest
   orgIdentifier: default
   projectIdentifier: newjt
-  properties:
-    ci:
-      codebase:
-        build: <+input>
-        connectorRef: account.Github
-        repoName: gittest
   stages:
     - stage:
         identifier: build
         name: build
         spec:
-          cloneCodebase: true
+          cloneCodebase: false
           execution:
             steps:
               - step:
@@ -25,9 +19,12 @@ pipeline:
                   timeout: ""
                   type: Run
           platform:
-            arch: Amd64
             os: Linux
+            arch: Amd64
           runtime:
-            spec: {}
             type: Cloud
+            spec: {}
+          caching:
+            enabled: false
+            paths: []
         type: CI
